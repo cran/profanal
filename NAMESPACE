@@ -1,0 +1,7 @@
+exportPattern(criterion.pattern,
+IPMMc,
+NP,
+plot.critpat,
+print.critpat,
+profile.cv
+)
