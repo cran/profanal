@@ -1,14 +1,12 @@
 \documentclass{article}
-%\usepackage{fullpage}
 \usepackage{graphicx}
-\usepackage{apacite}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.3cm}
 \title{Profile Analysis in \textbf{R} \\
-{\normalsize version 1.0}}
+{\normalsize version 1.0.1}}
 \author{Christopher David Desjardins}
-%\VignetteIndexEntry{An R Package for Profile Analysis}
 \usepackage{Sweave}
+%\VignetteIndexEntry{Using Profile Analysis}
 \begin{document}
 
 % Figures within a column...
@@ -24,9 +22,9 @@
 \maketitle
 
 The purpose of this manual is to document the \texttt{criterion.pattern()} and \texttt{profile.cv()} functions presented in
-\citeA{davison2002identifying} and implemented in \textbf{R}. This manual begins with a brief introduction to reading data
+\cite{davison2002identifying} and implemented in \textbf{R}. This manual begins with a brief introduction to reading data
 into \textbf{R}, then describes the two principal functions and how to use them, and concludes with examples of both functions
-that replicate the results presented in \citeA{davison2002identifying}. This manual assumes that the reader is familiar with this article. To more thoroughly understand these functions and their output, the reader should refer to that article.
+that replicate the results presented in \cite{davison2002identifying}. This manual assumes that the reader is familiar with this article. To more thoroughly understand these functions and their output, the reader should refer to that article.
 
 Functions and arguments that can be sent to \textbf{R} are written in \texttt{this format} and libraries and
 references to objects and output are written in \emph{this format}.
@@ -93,7 +91,7 @@ the cross-validation (provided in \texttt{profile.cv()}) the output is contained
 
 The default output from \texttt{criterion.pattern()} consists of three parts: The regression weights, the vector of regression weight deviations around the mean \emph{bstar}, the $R^2$ for the full model, for the level effect, and for the pattern effect. The default output also includes five F-test on these components: $H_o$: $R^2_{full} = 0$; $H_o$: $R^2_{pat} = 0$; $H_o$: $R^2_{lvl} = 0$; $H_o$: $R^2_{full} = R^2_{lvl}$; and $H_o$: $R^2_{full} = R^2_{pat}$. 
 
-Additionally output may be called from the \texttt{criterion.pattern()}. This includes the level component (\emph{lvl.comp}) and the pattern component (\emph{pat.comp}). \emph{lvl.comp} provides a vector of scores corresponding to the level component. This is labeled as \textbf{X}$_p$ in \citeA{davison2002identifying}. \emph{pat.comp} provides the matrix of pattern component scores. This is labeled as \textbf{x}$_p$ in Davison and Davenport (2002). \emph{b} is a vector that contains the regression weights, this is not the deviation vector around the regression weight mean. The vector containing the regression weight deviations around the regression weight mean corresponds to \emph{bstar}. This is labeled b* in \citeA{davison2002identifying} but it is programmed as \emph{bstar} because \textbf{R} does not allow the use of the * key. \emph{xc} corresponds to the criterion pattern based on \emph{k} and can be calculated by multiplying \emph{bstar} and \emph{k}. The covariance between the actual predictor scores of person \textit{p} and their scores in criterion-pattern vector (\emph{Covpc)} is also available as is the vector of predicted scores, \emph{Ypred}. 
+Additionally output may be called from the \texttt{criterion.pattern()}. This includes the level component (\emph{lvl.comp}) and the pattern component (\emph{pat.comp}). \emph{lvl.comp} provides a vector of scores corresponding to the level component. This is labeled as \textbf{X}$_p$ in \cite{davison2002identifying}. \emph{pat.comp} provides the matrix of pattern component scores. This is labeled as \textbf{x}$_p$ in Davison and Davenport (2002). \emph{b} is a vector that contains the regression weights, this is not the deviation vector around the regression weight mean. The vector containing the regression weight deviations around the regression weight mean corresponds to \emph{bstar}. This is labeled b* in \cite{davison2002identifying} but it is programmed as \emph{bstar} because \textbf{R} does not allow the use of the * key. \emph{xc} corresponds to the criterion pattern based on \emph{k} and can be calculated by multiplying \emph{bstar} and \emph{k}. The covariance between the actual predictor scores of person \textit{p} and their scores in criterion-pattern vector (\emph{Covpc)} is also available as is the vector of predicted scores, \emph{Ypred}. 
 
 The examples below show how to run the functions, however, I recommend saving the output from the functions to an object so that you can easily retrieve them and in the case of \texttt{profile.cv()} so that results can be replicated. It is also necessary to store the output so that you can call the additional information available in the function.
 
@@ -106,7 +104,7 @@ The examples below show how to run the functions, however, I recommend saving th
 
 \vspace{.1cm}
 
-The \texttt{profilecv()} function implements the cross-validation technique described in \citeA{davison2002identifying}. It
+The \texttt{profilecv()} function implements the cross-validation technique described in \cite{davison2002identifying}. It
 requires two arguments: \texttt{x} and \texttt{y}. The argument \texttt{x} corresponds to the predictor variables. This matrix
 of covariates may be in their own object or in the same object as the dependent variable. The \texttt{y} argument corresponds to the dependent variable. This vector may be in a separate object or in the same object as \texttt{x}. There is no \texttt{k}
 argument for this function as \texttt{k} is irrelevant to this calculation.
@@ -117,7 +115,7 @@ Again, it is recommended that you save the output of this function to an object.
 
 \section{Examples} 
 To demonstrate the use of the \texttt{criterion.pattern()} and the \texttt{profilecv()} functions, two data
-sets are provided. The first data set, labeled dd2002.Rdata, can be used to recreate table 1 in \citeA{davison2002identifying}.
+sets are provided. The first data set, labeled dd2002.Rdata, can be used to recreate table 1 in \cite{davison2002identifying}.
 The second data set, sack.Rdata, can be used to recreate example 1 using the Sackett data set. The Sackett data set is not in
 the public domain and can not be shared.
 
@@ -213,7 +211,7 @@ List of 10
 \end{Soutput}
 \end{Schunk}
 
-To replicate the Figure 1 in \citeA{davison2002identifying}
+To replicate the Figure 1 in \cite{davison2002identifying}
 
 \begin{Schunk}
 \begin{Sinput}
@@ -390,7 +388,7 @@ R2full = R2pat       0.000    1    1 1.000000
 \end{Soutput}
 \end{Schunk}
 
-\bibliographystyle{apacite}
+\bibliographystyle{plain}
 \bibliography{profanalnotes}
 
 
